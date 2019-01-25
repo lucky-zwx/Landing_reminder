@@ -48,7 +48,6 @@ try:
     s = smtplib.SMTP_SSL("smtp.qq.com", 465)
     s.login(msg_from, passwd)
     s.sendmail(msg_from, msg_to, msg.as_string())
-    print("发送成功")
 except Exception:
     print("发送失败")
 finally:
