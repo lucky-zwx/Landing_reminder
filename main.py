@@ -37,7 +37,7 @@ def handle_client(client_socket, auth, Close_i):
     # 构造响应数据
     response_start_line = "HTTP/1.1 200 OK\r\n"
     response_headers = "Server: My server\r\n"
-    response_body = "<h1>Python HTTP Test</h1>"
+    response_body = "<h1>您现在没有操作权限！！！</h1>"
     if auth in mess:
         response_body = "<h1>Success</h1>"
         Close_i.value = 1
@@ -55,8 +55,8 @@ def send_mail(port):
     signal.signal(signal.SIGINT, signal_handler)
     now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     msg_from = 'zhuwx1998@qq.com'  # 发送方邮箱
-    passwd = 'uzbmnbilafxxxxxx'  # 填入发送方邮箱的授权码
-    msg_to = '7943xxxxx@qq.com'  # 收件人邮箱
+    passwd = 'uzbmnbilafhzdgeh'  # 填入发送方邮箱的授权码
+    msg_to = '794355441@qq.com'  # 收件人邮箱
     subject = "服务器登陆提醒"  # 主题
     zhuwx = '123'
     mail_msg = """
@@ -118,6 +118,8 @@ if __name__ == "__main__":
     Close_i = multiprocessing.Value("d", 0)
     while True:
         client_socket, client_address = server_socket.accept()
+        # print("[%s, %s]用户连接上了" % client_address)
+        # print(auth)
         handle_client_process = Process(target=handle_client, args=(client_socket, auth, Close_i))
         handle_client_process.daemon = True
         handle_client_process.start()
