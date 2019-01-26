@@ -118,8 +118,6 @@ if __name__ == "__main__":
     Close_i = multiprocessing.Value("d", 0)
     while True:
         client_socket, client_address = server_socket.accept()
-        # print("[%s, %s]用户连接上了" % client_address)
-        # print(auth)
         handle_client_process = Process(target=handle_client, args=(client_socket, auth, Close_i))
         handle_client_process.daemon = True
         handle_client_process.start()
