@@ -55,10 +55,9 @@ def send_mail(port):
     signal.signal(signal.SIGINT, signal_handler)
     now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     msg_from = 'zhuwx1998@qq.com'  # 发送方邮箱
-    passwd = 'uzbmnbilafhzdgeh'  # 填入发送方邮箱的授权码
+    passwd = 'uzbmnbilafhzxxxx'  # 填入发送方邮箱的授权码
     msg_to = '794355441@qq.com'  # 收件人邮箱
     subject = "服务器登陆提醒"  # 主题
-    zhuwx = '123'
     mail_msg = """
     <h1 style="text-align:center;">
             <strong></strong>服务器登陆提醒
